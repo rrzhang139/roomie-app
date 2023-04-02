@@ -4,8 +4,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const auth = require("../middleware/auth");
-
 const User = require("../model/User");
+const RoommateGroup = require("../model/RoommateGroup");
+const { CustomError } = require("../util/errors");
 
 /**
  * @method - GET
@@ -25,7 +26,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).send({ message: "Error in Fetching user" });
   }
 });
-
 
 /**
  * @method - POST

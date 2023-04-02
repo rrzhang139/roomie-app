@@ -2,23 +2,27 @@ const Task = require("../model/Task");
 const RoommateGroup = require("../model/RoommateGroup");
 const express = require("express");
 const router = express.Router();
+const { CustomError } = require("../util/errors");
 
-// GET /tasks: Get all tasks
-router.get("/", async (req, res) => {
-  try {
-    const tasks = await Task.find();
-    res.status(200).json(tasks);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
+// // GET /tasks: Get all tasks
+// router.get("/", async (req, res) => {
+//   try {
+//     const tasks = await Task.find();
+//     res.status(200).json(tasks);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
 
 // GET /tasks/user/:user_id: Get all tasks for a particular user
 router.get("/user/:user_id", async (req, res) => {
   try {
     const { user_id } = req.params;
     const tasks = await Task.find({ user_id });
+    if (!tasks) {
+      throw new CustomError(404, "Task not found");
+    }
     res.status(200).json(tasks);
   } catch (error) {
     console.error(error);
@@ -31,6 +35,9 @@ router.get("/user/:roommate_group_id", async (req, res) => {
   try {
     const { roommate_group_id } = req.params;
     const tasks = await Task.find({ roommate_group_id });
+    if (!tasks) {
+      throw new CustomError(404, "Task not found");
+    }
     res.status(200).json(tasks);
   } catch (error) {
     console.error(error);
@@ -44,6 +51,8 @@ router.post("/", async (req, res) => {
     const { user_id, name, description, due_date, status, roommate_group_id } = req.body;
     const due_date_object = new Date(due_date);
     const task = new Task({ user_id, name, description, due_date_object, status, roommate_group_id });
+
+    // TODO: INSERT GOOGLE CAL API
     await task.save();
     res.status(201).json(task);
   } catch (error) {
