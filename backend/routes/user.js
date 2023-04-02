@@ -8,6 +8,26 @@ const auth = require("../middleware/auth");
 const User = require("../model/User");
 
 /**
+ * @method - GET
+ * @param - /user/:id
+ * @description - get a user based on MongoDB ObjectID
+ */
+
+router.get("/:id", async (req, res) => {
+  try {
+    const user_id = req.params.id;
+    const user = await User.findById(user_id);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+    res.json(user);
+  } catch (e) {
+    res.status(500).send({ message: "Error in Fetching user" });
+  }
+});
+
+
+/**
  * @method - POST
  * @param - /signup
  * @description - User SignUp

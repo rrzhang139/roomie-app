@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   first_name: { type: String, required: true },
   last_name: { type: String, required: true },
-  // roommate_groups: [{ type: mongoose.Schema.Types.ObjectId, ref: 'RoommateGroup' }]
+  roommate_group_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'RoommateGroup' }]
 });
 
 const User = mongoose.model('User', userSchema);
