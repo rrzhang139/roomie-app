@@ -23,6 +23,7 @@ router.get("/:id", async (req, res) => {
     }
     res.json(user);
   } catch (e) {
+    console.log(e)
     res.status(500).send({ message: "Error in Fetching user" });
   }
 });
@@ -172,15 +173,16 @@ router.post(
 /**
  * @method - POST
  * @description - Get LoggedIn User
- * @param - /user/me
+ * @param - /auth/me
  */
 
-router.get("/me", auth, async (req, res) => {
+router.get("/auth/me", auth, async (req, res) => {
   try {
     // request.user is getting fetched from Middleware after token authentication
     const user = await User.findById(req.user.id);
     res.json(user);
   } catch (e) {
+    console.log(e)
     res.send({ message: "Error in Fetching user" });
   }
 });

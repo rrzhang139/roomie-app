@@ -3,6 +3,7 @@ const RoommateGroup = require("../model/RoommateGroup");
 const express = require("express");
 const router = express.Router();
 const { CustomError } = require("../util/errors");
+const auth = require("../middleware/auth");
 
 // // GET /tasks: Get all tasks
 // router.get("/", async (req, res) => {
@@ -15,10 +16,11 @@ const { CustomError } = require("../util/errors");
 //   }
 // });
 
-// GET /tasks/user/:user_id: Get all tasks for a particular user
-router.get("/user/:user_id", async (req, res) => {
+// GET /tasks/user: Get all tasks for a particular user
+// NEED AUTH
+router.get("/user", auth, async (req, res) => {
   try {
-    const { user_id } = req.params;
+    const user_id = req.user.id;
     const tasks = await Task.find({ user_id });
     if (!tasks) {
       throw new CustomError(404, "Task not found");
@@ -46,9 +48,11 @@ router.get("/user/:roommate_group_id", async (req, res) => {
 });
 
 // POST /tasks: Create a new task
-router.post("/", async (req, res) => {
+// NEED AUTH
+router.post("/", auth, async (req, res) => {
   try {
-    const { user_id, name, description, due_date, status, roommate_group_id } = req.body;
+    const user_id = req.user.id;
+    const { name, description, due_date, status, roommate_group_id } = req.body;
     const due_date_object = new Date(due_date);
     const task = new Task({ user_id, name, description, due_date_object, status, roommate_group_id });
 
@@ -62,10 +66,12 @@ router.post("/", async (req, res) => {
 });
 
 // PUT /tasks/:id: Update a task by ID
+// NEED AUTH
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { user_id, name, description, due_date, status, roommate_group_id } = req.body;
+    const user_id = req.user.id;
+    const { name, description, due_date, status, roommate_group_id } = req.body;
     const task = await Task.findByIdAndUpdate(id, { user_id, name, description, due_date, status, roommate_group_id }, { new: true });
 
     if (!task) {
@@ -80,15 +86,28 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE /tasks/:id: Delete a task by ID
-router.delete("/:id", async (req, res) => {
+// NEED AUTH
+router.delete("/:id", auth, async (req, res) => {
   try {
+    const user_id = req.user.id;
     const { id } = req.params;
-    const task = await Task.findByIdAndDelete(id);
+    const task = await Task.findById(id);
 
     if (!task) {
       return res.status(404).json({ message: "Task not found" });
     }
 
+    const group = await RoommateGroup.findOne({ tasks: { $in: [id] } });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found" });
+    }
+
+    if (!group.roommates.includes(user_id)) {
+      return res.status(403).json({ message: "You do not have permission to delete this task" });
+    }
+
+    await Task.findByIdAndDelete(id);
     res.status(200).json({ message: "Task deleted successfully" });
   } catch (error) {
     console.error(error);
