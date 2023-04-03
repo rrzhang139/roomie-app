@@ -61,9 +61,22 @@ router.get("/", auth, async (req, res, next) => {
 router.post("/", auth, async (req, res) => {
   try {
     const user_id = req.user.id;
-    const { name, roommates } = req.body;
-    roommates.push(user_id);
-    const roommateGroup = new RoommateGroup({ name, roommates, tasks: [], bills: [], grocery_items: [] });
+    const { name, roommate_emails } = req.body;
+
+    if (!Array.isArray(roommate_emails)) {
+      return res.status(400).json({ message: "roommate_emails must be an array" });
+    }
+
+    const roommates = [user_id];
+    for (const email of roommate_emails) {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ message: `User with email ${email} not found` });
+      }
+      roommates.push(user._id);
+    }
+
+    const roommateGroup = new RoommateGroup({ name, owner_id: user_id, roommates, tasks: [], bills: [], grocery_items: [] });
     await roommateGroup.save();
     const id = roommateGroup._id;
 
@@ -75,6 +88,41 @@ router.post("/", auth, async (req, res) => {
     }
 
     res.status(201).json(roommateGroup);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// POST /roommate-groups/add-roommate/:roommate_group_id: Add a roommate to a roommate group
+// AUTH HERE
+router.post("/add-roommate/:roommate_group_id", auth, async (req, res) => {
+  try {
+    const user_id = req.user.id;
+    const { roommate_group_id } = req.params;
+    const { email } = req.body;
+
+    // Find the user with the provided email
+    const userToAdd = await User.findOne({ email });
+    if (!userToAdd) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Find the roommate group and ensure the requesting user is the owner
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
+
+    if (roommateGroup.owner_id.toString() !== user_id) {
+      return res.status(403).json({ message: "Only the owner of the roommate group can add users" });
+    }
+
+    // Add the user to the roommate group and save
+    roommateGroup.roommates.push(userToAdd._id);
+    await roommateGroup.save();
+
+    res.status(200).json({ message: "User added to the roommate group", roommateGroup });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
