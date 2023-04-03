@@ -15,6 +15,9 @@
 		B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */; };
 		B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04029DA1B92006BEB1C /* RoommateAPI.swift */; };
 		B436D04429DA2491006BEB1C /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04329DA2491006BEB1C /* UserToken.swift */; };
+		B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */; };
+		B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */; };
+		B47F185F29DA91AA0028C7E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185E29DA91AA0028C7E6 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserLanding.swift; sourceTree = "<group>"; };
 		B436D04029DA1B92006BEB1C /* RoommateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateAPI.swift; sourceTree = "<group>"; };
 		B436D04329DA2491006BEB1C /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoommateGroup.swift; sourceTree = "<group>"; };
+		B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroup.swift; sourceTree = "<group>"; };
+		B47F185E29DA91AA0028C7E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,9 @@
 			children = (
 				B436D03C29D8E771006BEB1C /* LoginSignUp.swift */,
 				B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */,
+				B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */,
+				B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */,
+				B47F185E29DA91AA0028C7E6 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,12 +174,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47F185F29DA91AA0028C7E6 /* HomeView.swift in Sources */,
+				B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */,
 				B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */,
 				B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */,
 				B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */,
 				B436D03D29D8E771006BEB1C /* LoginSignUp.swift in Sources */,
 				B436D04429DA2491006BEB1C /* UserToken.swift in Sources */,
 				B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */,
+				B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
