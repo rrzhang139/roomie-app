@@ -6,6 +6,7 @@ const Bill = require("../model/Bill");
 const GroceryItem = require("../model/GroceryItem");
 const SharedResource = require("../model/SharedResource");
 const { CustomError } = require("../util/errors");
+const auth = require("../middleware/auth");
 
 // GET /roommate-groups/:roommate_group_id: Get roommate group by ID
 // router.get("/", async (req, res) => {
@@ -19,8 +20,10 @@ const { CustomError } = require("../util/errors");
 // });
 
 // GET /roommate-groups/roommates/:roommate_group_id: Get all roommates in a group
-router.get("/roommates/:roommate_group_id", async (req, res) => {
+// AUTH HERE
+router.get("/roommates/:roommate_group_id", auth, async (req, res) => {
   try {
+    const user_id = req.user.id;
     const { roommate_group_id } = req.params;
     const roommateGroup = await RoommateGroup.findById(roommate_group_id).populate("roommates");
     res.status(200).json(roommateGroup.roommates);
@@ -30,11 +33,12 @@ router.get("/roommates/:roommate_group_id", async (req, res) => {
   }
 });
 
-// GET /roommate-groups/roommate-groups/:user_id: Get all roommate groups for a user
-router.get("/roommate-groups/:userId", async (req, res, next) => {
+// GET /roommate-groups/: Get all roommate groups for a user
+// AUTH HERE
+router.get("/", auth, async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const user = await User.findById(userId);
+    const user_id = req.user.id;
+    const user = await User.findById(user_id);
 
     if (!user) {
       throw new CustomError(404, "User not found");
@@ -53,9 +57,12 @@ router.get("/roommate-groups/:userId", async (req, res, next) => {
 });
 
 // POST /roommate-groups: Add a roommate group
-router.post("/", async (req, res) => {
+// AUTH HERE
+router.post("/", auth, async (req, res) => {
   try {
+    const user_id = req.user.id;
     const { name, roommates } = req.body;
+    roommates.push(user_id);
     const roommateGroup = new RoommateGroup({ name, roommates, tasks: [], bills: [], grocery_items: [] });
     await roommateGroup.save();
     const id = roommateGroup._id;
@@ -76,6 +83,7 @@ router.post("/", async (req, res) => {
 
 // ON HOLD FOR FUTURE FEATURE
 // PUT /roommate-groups/:roommate_group_id: Update RoommateGroup By ID
+// AUTH HERE
 router.put("/:roommate_group_id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -94,13 +102,19 @@ router.put("/:roommate_group_id", async (req, res) => {
 });
 
 // DELETE /roommate-groups/:id: Remove a roommate group by ID
-router.delete("/:id", async (req, res) => {
+// AUTH HERE
+router.delete("/:id", auth, async (req, res) => {
   try {
+    const user_id = req.user.id;
     const { id } = req.params;
     const roommateGroup = await RoommateGroup.findById(id);
 
     if (!roommateGroup) {
       return res.status(404).json({ message: "Roommate group not found" });
+    }
+
+    if (!roommateGroup.roommates.includes(user_id)) {
+      return res.status(403).json({ message: "You do not have permission to delete this group" });
     }
 
     for (const roommateId of roommateGroup.roommates) {
