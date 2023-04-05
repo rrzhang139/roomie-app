@@ -11,7 +11,8 @@ struct Login: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var username = ""
     @State private var password = ""
-    @State private var showNewUserLanding = false
+    @State private var isNavigating = false
+    @State private var failed = false
     
     var body: some View {
         VStack {
@@ -37,7 +38,12 @@ struct Login: View {
                 .accentColor(.black)
                 .autocapitalization(.none)
             
-            NavigationLink(destination: NewUserLanding().navigationBarBackButtonHidden(true)) {
+            if failed {
+                Text("Invalid username/password")
+                    .foregroundColor(.red)
+            }
+            
+            NavigationLink(destination: NewUserLanding().navigationBarBackButtonHidden(true), isActive: $isNavigating) {
                 Text("Login")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -45,6 +51,22 @@ struct Login: View {
                     .frame(maxWidth: .infinity)
                     .background((!username.isEmpty && !password.isEmpty) ? Color.blue : Color.gray)
                     .cornerRadius(10)
+                    .onTapGesture {
+                        let body = [
+                            "email" : username,
+                            "password" : password,
+                        ]
+                        
+                        APIClient.login(body: body) { success, error in
+                            if success {
+                                print("Login successful")
+                                self.isNavigating = true
+                            } else {
+                                self.failed = true
+                                print("Login failed")
+                            }
+                        }
+                    }
             }
         }
         .padding()
