@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct SignUp: View {
+    // Info from the user
     @State private var firstname = ""
     @State private var lastname = ""
     @State private var username = ""
     @State private var password = ""
     @State private var email = ""
-    @State private var showNewUserLanding = false
+    
+    // Boolean state values
+    @State private var isNavigating = false
+    @State private var isLoading = false
+    @State private var failed = false
     
     var body: some View {
         VStack {
@@ -68,9 +73,13 @@ struct SignUp: View {
                 .accentColor(.black)
                 .autocapitalization(.none)
             
-            Button(action: {
-                withAnimation {
-                    // Navigate to the new user landing page
+            if failed {
+                Text("Error: One of those fields are invalid, good luck lol")
+                    .foregroundColor(.red)
+            }
+            
+            NavigationLink(destination: NewUserLanding().navigationBarBackButtonHidden(true), isActive: $isNavigating) {
+                Button (action: {
                     let body = [
                         "username" : username,
                         "password" : password,
@@ -82,28 +91,27 @@ struct SignUp: View {
                     APIClient.signup(body: body) { success, error in
                         if success {
                             print("Signup successful")
-                            self.showNewUserLanding = true
+                            self.isNavigating = true
                         } else {
+                            self.failed = true
                             print("Signup failed")
                         }
                     }
+                }) {
+                    if isLoading {
+                        ProgressView()
+                    } else {
+                        Text("Sign Up")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background([username, password, email, firstname, lastname].allSatisfy { !$0.isEmpty }
+                                        ? Color.blue : Color.gray)
+                            .cornerRadius(10)
+                    }
                 }
-            }) {
-                Text("Sign Up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background([username, password, email, firstname, lastname].allSatisfy { !$0.isEmpty }
-                                ? Color.blue : Color.gray)
-                    .cornerRadius(10)
             }
-            .disabled([username, password, email, firstname, lastname].allSatisfy { $0.isEmpty })
-            .fullScreenCover(isPresented: $showNewUserLanding) {
-                NewUserLanding()
-                    .transition(.move(edge: .leading))
-            }
-            .padding()
         }
         .padding()
     }

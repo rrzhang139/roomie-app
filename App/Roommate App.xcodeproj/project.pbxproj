@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41CDCC329DD6FFC001C7282 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC229DD6FFC001C7282 /* User.swift */; };
+		B41CDCC529DD713A001C7282 /* RoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC429DD713A001C7282 /* RoommateGroup.swift */; };
+		B41CDCC729DD725D001C7282 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC629DD725D001C7282 /* Bill.swift */; };
+		B41CDCC929DD7392001C7282 /* GroupTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC829DD7392001C7282 /* GroupTask.swift */; };
+		B41CDCCB29DD741D001C7282 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCCA29DD741D001C7282 /* GroceryItem.swift */; };
 		B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D02B29D8E605006BEB1C /* RoommateApp.swift */; };
 		B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D02D29D8E605006BEB1C /* ContentView.swift */; };
 		B436D03029D8E607006BEB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B436D02F29D8E607006BEB1C /* Assets.xcassets */; };
 		B436D03329D8E607006BEB1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B436D03229D8E607006BEB1C /* Preview Assets.xcassets */; };
-		B436D03D29D8E771006BEB1C /* LoginSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D03C29D8E771006BEB1C /* LoginSignUp.swift */; };
 		B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */; };
 		B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04029DA1B92006BEB1C /* RoommateAPI.swift */; };
 		B436D04429DA2491006BEB1C /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04329DA2491006BEB1C /* UserToken.swift */; };
-		B464ACE529DCD3F400F2D428 /* NewLoginSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE429DCD3F400F2D428 /* NewLoginSignUp.swift */; };
+		B464ACE529DCD3F400F2D428 /* LoginSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */; };
 		B464ACE729DCD41200F2D428 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE629DCD41200F2D428 /* SignUp.swift */; };
 		B464ACE929DCD45E00F2D428 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE829DCD45E00F2D428 /* Login.swift */; };
 		B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */; };
@@ -24,16 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B41CDCC229DD6FFC001C7282 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B41CDCC429DD713A001C7282 /* RoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateGroup.swift; sourceTree = "<group>"; };
+		B41CDCC629DD725D001C7282 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		B41CDCC829DD7392001C7282 /* GroupTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTask.swift; sourceTree = "<group>"; };
+		B41CDCCA29DD741D001C7282 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		B436D02829D8E605006BEB1C /* Roommate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roommate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B436D02B29D8E605006BEB1C /* RoommateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateApp.swift; sourceTree = "<group>"; };
 		B436D02D29D8E605006BEB1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B436D02F29D8E607006BEB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B436D03229D8E607006BEB1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B436D03C29D8E771006BEB1C /* LoginSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUp.swift; sourceTree = "<group>"; };
 		B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserLanding.swift; sourceTree = "<group>"; };
 		B436D04029DA1B92006BEB1C /* RoommateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateAPI.swift; sourceTree = "<group>"; };
 		B436D04329DA2491006BEB1C /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
-		B464ACE429DCD3F400F2D428 /* NewLoginSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginSignUp.swift; sourceTree = "<group>"; };
+		B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUp.swift; sourceTree = "<group>"; };
 		B464ACE629DCD41200F2D428 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		B464ACE829DCD45E00F2D428 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoommateGroup.swift; sourceTree = "<group>"; };
@@ -52,6 +60,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B41CDCCC29DD75F3001C7282 /* LoginSignUpFlow */ = {
+			isa = PBXGroup;
+			children = (
+				B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */,
+				B464ACE629DCD41200F2D428 /* SignUp.swift */,
+				B464ACE829DCD45E00F2D428 /* Login.swift */,
+			);
+			path = LoginSignUpFlow;
+			sourceTree = "<group>";
+		};
 		B436D01F29D8E604006BEB1C = {
 			isa = PBXGroup;
 			children = (
@@ -93,14 +111,11 @@
 		B436D03929D8E6EC006BEB1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B436D03C29D8E771006BEB1C /* LoginSignUp.swift */,
+				B41CDCCC29DD75F3001C7282 /* LoginSignUpFlow */,
 				B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */,
 				B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */,
 				B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */,
 				B47F185E29DA91AA0028C7E6 /* HomeView.swift */,
-				B464ACE429DCD3F400F2D428 /* NewLoginSignUp.swift */,
-				B464ACE629DCD41200F2D428 /* SignUp.swift */,
-				B464ACE829DCD45E00F2D428 /* Login.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				B436D04329DA2491006BEB1C /* UserToken.swift */,
+				B41CDCC229DD6FFC001C7282 /* User.swift */,
+				B41CDCC429DD713A001C7282 /* RoommateGroup.swift */,
+				B41CDCCA29DD741D001C7282 /* GroceryItem.swift */,
+				B41CDCC829DD7392001C7282 /* GroupTask.swift */,
+				B41CDCC629DD725D001C7282 /* Bill.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,13 +205,17 @@
 			files = (
 				B47F185F29DA91AA0028C7E6 /* HomeView.swift in Sources */,
 				B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */,
-				B464ACE529DCD3F400F2D428 /* NewLoginSignUp.swift in Sources */,
+				B464ACE529DCD3F400F2D428 /* LoginSignUp.swift in Sources */,
+				B41CDCC529DD713A001C7282 /* RoommateGroup.swift in Sources */,
+				B41CDCC729DD725D001C7282 /* Bill.swift in Sources */,
+				B41CDCC929DD7392001C7282 /* GroupTask.swift in Sources */,
+				B41CDCCB29DD741D001C7282 /* GroceryItem.swift in Sources */,
 				B464ACE929DCD45E00F2D428 /* Login.swift in Sources */,
 				B464ACE729DCD41200F2D428 /* SignUp.swift in Sources */,
 				B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */,
 				B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */,
 				B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */,
-				B436D03D29D8E771006BEB1C /* LoginSignUp.swift in Sources */,
+				B41CDCC329DD6FFC001C7282 /* User.swift in Sources */,
 				B436D04429DA2491006BEB1C /* UserToken.swift in Sources */,
 				B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */,
 				B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */,

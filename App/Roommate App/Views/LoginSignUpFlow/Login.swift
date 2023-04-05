@@ -9,10 +9,12 @@ import SwiftUI
 
 struct Login: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var username = ""
+    @State private var email = ""
     @State private var password = ""
+    
     @State private var isNavigating = false
     @State private var failed = false
+    @State private var isLoading = false
     
     var body: some View {
         VStack {
@@ -20,7 +22,7 @@ struct Login: View {
                 .font(.title)
                 .fontWeight(.bold)
             
-            TextField("Username", text: $username)
+            TextField("email", text: $email)
                 .padding()
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -39,34 +41,41 @@ struct Login: View {
                 .autocapitalization(.none)
             
             if failed {
-                Text("Invalid username/password")
+                Text("Invalid email/password")
                     .foregroundColor(.red)
             }
             
+            // TODO: If the user isn't part of a group, show NewUserLanding, else HomeView
             NavigationLink(destination: NewUserLanding().navigationBarBackButtonHidden(true), isActive: $isNavigating) {
-                Text("Login")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background((!username.isEmpty && !password.isEmpty) ? Color.blue : Color.gray)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        let body = [
-                            "email" : username,
-                            "password" : password,
-                        ]
-                        
-                        APIClient.login(body: body) { success, error in
-                            if success {
-                                print("Login successful")
-                                self.isNavigating = true
-                            } else {
-                                self.failed = true
-                                print("Login failed")
-                            }
+                Button (action: {
+                    let body = [
+                        "email" : email,
+                        "password" : password,
+                    ]
+                    
+                    APIClient.login(body: body) { success, error in
+                        if success {
+                            print("Login successful")
+                            self.isNavigating = true
+                        } else {
+                            self.failed = true
+                            print("Login failed")
                         }
                     }
+                }) {
+                    if isLoading {
+                        ProgressView()
+                    } else {
+                        Text("Login")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background([email, password].allSatisfy { !$0.isEmpty }
+                                        ? Color.blue : Color.gray)
+                            .cornerRadius(10)
+                    }
+                }
             }
         }
         .padding()

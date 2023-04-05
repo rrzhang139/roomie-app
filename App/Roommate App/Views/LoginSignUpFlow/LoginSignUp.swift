@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewLoginSignUp: View {
+struct LoginSignUp: View {
     
     var body: some View {
         NavigationView {
@@ -43,9 +43,9 @@ struct NewLoginSignUp: View {
         }
     }
     
-    struct NewLoginSignUp_Previews: PreviewProvider {
+    struct LoginSignUp_Previews: PreviewProvider {
         static var previews: some View {
-            NewLoginSignUp()
+            LoginSignUp()
         }
     }
 }
