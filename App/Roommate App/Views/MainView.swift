@@ -7,59 +7,61 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct MainView: View {
     @Binding var roomName: String
     @State private var selection = 0
+    
+    init(roomName: Binding<String>) {
+        _roomName = roomName
+    }
     
     var body: some View {
         TabView(selection: $selection) {
             // Home view
-            Text("Home view")
+            Home()
                 .tabItem {
                     Image(systemName: "1.circle")
-                    Text("First")
+                    Text("Home")
                 }
                 .tag(0)
             
             // Tasks view
-            Text("Tasks view")
+            Tasks()
                 .tabItem {
                     Image(systemName: "2.circle")
-                    Text("Second")
+                    Text("Tasks")
                 }
                 .tag(1)
             
             // Shopping list view
-            Text("Shopping List View")
+            GroceryList()
                 .tabItem {
                     Image(systemName: "3.circle")
-                    Text("Third")
+                    Text("Groceries")
                 }
                 .tag(2)
             
             // Bills view
-            Text("Bills View")
+            Bills()
                 .tabItem {
                     Image(systemName: "4.circle")
-                    Text("Third")
+                    Text("Bills")
                 }
                 .tag(3)
             
             // Schedule view
-            Text("Schedule View")
+            Schedule()
                 .tabItem {
                     Image(systemName: "5.circle")
-                    Text("Third")
+                    Text("Schedule")
                 }
                 .tag(4)
-            
         }
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    @Binding var roomName: String
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(roomName: .constant("YESSUH"))
+        MainView(roomName: .constant("YESSUH"))
     }
 }

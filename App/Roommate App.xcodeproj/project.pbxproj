@@ -24,7 +24,12 @@
 		B464ACE929DCD45E00F2D428 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE829DCD45E00F2D428 /* Login.swift */; };
 		B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */; };
 		B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */; };
-		B47F185F29DA91AA0028C7E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185E29DA91AA0028C7E6 /* HomeView.swift */; };
+		B47F185F29DA91AA0028C7E6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185E29DA91AA0028C7E6 /* MainView.swift */; };
+		B4E6C1D729DEBF64002F0A89 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */; };
+		B4E6C1D929DEBF9E002F0A89 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1D829DEBF9E002F0A89 /* Home.swift */; };
+		B4E6C1DB29DEBFD4002F0A89 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */; };
+		B4E6C1DD29DEBFE7002F0A89 /* Bills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */; };
+		B4E6C1DF29DEBFFE002F0A89 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +51,12 @@
 		B464ACE829DCD45E00F2D428 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoommateGroup.swift; sourceTree = "<group>"; };
 		B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroup.swift; sourceTree = "<group>"; };
-		B47F185E29DA91AA0028C7E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B47F185E29DA91AA0028C7E6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
+		B4E6C1D829DEBF9E002F0A89 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bills.swift; sourceTree = "<group>"; };
+		B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B41CDCCC29DD75F3001C7282 /* LoginSignUpFlow */ = {
+		B41CDCCC29DD75F3001C7282 /* LoginSignUp */ = {
 			isa = PBXGroup;
 			children = (
 				B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */,
 				B464ACE629DCD41200F2D428 /* SignUp.swift */,
 				B464ACE829DCD45E00F2D428 /* Login.swift */,
 			);
-			path = LoginSignUpFlow;
+			path = LoginSignUp;
 			sourceTree = "<group>";
 		};
 		B436D01F29D8E604006BEB1C = {
@@ -111,11 +121,12 @@
 		B436D03929D8E6EC006BEB1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B41CDCCC29DD75F3001C7282 /* LoginSignUpFlow */,
+				B4E6C1D529DEBEE0002F0A89 /* Tabs */,
+				B41CDCCC29DD75F3001C7282 /* LoginSignUp */,
 				B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */,
 				B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */,
 				B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */,
-				B47F185E29DA91AA0028C7E6 /* HomeView.swift */,
+				B47F185E29DA91AA0028C7E6 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +142,18 @@
 				B41CDCC629DD725D001C7282 /* Bill.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B4E6C1D529DEBEE0002F0A89 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */,
+				B4E6C1D829DEBF9E002F0A89 /* Home.swift */,
+				B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */,
+				B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */,
+				B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,19 +226,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B47F185F29DA91AA0028C7E6 /* HomeView.swift in Sources */,
+				B47F185F29DA91AA0028C7E6 /* MainView.swift in Sources */,
 				B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */,
 				B464ACE529DCD3F400F2D428 /* LoginSignUp.swift in Sources */,
 				B41CDCC529DD713A001C7282 /* RoommateGroup.swift in Sources */,
+				B4E6C1D929DEBF9E002F0A89 /* Home.swift in Sources */,
 				B41CDCC729DD725D001C7282 /* Bill.swift in Sources */,
 				B41CDCC929DD7392001C7282 /* GroupTask.swift in Sources */,
+				B4E6C1DB29DEBFD4002F0A89 /* Tasks.swift in Sources */,
 				B41CDCCB29DD741D001C7282 /* GroceryItem.swift in Sources */,
 				B464ACE929DCD45E00F2D428 /* Login.swift in Sources */,
+				B4E6C1D729DEBF64002F0A89 /* GroceryList.swift in Sources */,
 				B464ACE729DCD41200F2D428 /* SignUp.swift in Sources */,
+				B4E6C1DF29DEBFFE002F0A89 /* Schedule.swift in Sources */,
 				B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */,
 				B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */,
 				B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */,
 				B41CDCC329DD6FFC001C7282 /* User.swift in Sources */,
+				B4E6C1DD29DEBFE7002F0A89 /* Bills.swift in Sources */,
 				B436D04429DA2491006BEB1C /* UserToken.swift in Sources */,
 				B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */,
 				B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */,

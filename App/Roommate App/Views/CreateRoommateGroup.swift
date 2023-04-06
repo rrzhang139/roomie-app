@@ -8,35 +8,36 @@
 import SwiftUI
 
 struct CreateRoommateGroup: View {
-    @State private var roomName = ""
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var roomName: String
+    @Binding var isNavigating: Bool
     
     var body: some View {
-        NavigationView {
+        VStack {
+            Text("Create a group")
+                .font(.system(size: 30, weight: .semibold))
+            
             VStack {
-                Text("Create a group")
-                    .font(.system(size: 30, weight: .semibold))
+                TextField("Enter a room name", text: $roomName)
+                    .font(.title3)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10)
+                    .padding()
                 
-                VStack {
-                    TextField("Enter a room name", text: $roomName)
-                        .font(.title3)
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                    isNavigating = true
+                } label: {
+                    Text("Create")
+                        .font(.headline)
+                        .foregroundColor(.white)
                         .padding()
-                        .background(Color(.secondarySystemBackground))
+                        .background(!roomName.isEmpty ? Color.blue : Color.gray)
                         .cornerRadius(10)
-                        .padding()
-                    
-                    NavigationLink(destination: HomeView()) {
-                        HStack {
-                            Text("Create")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
                 }
+                .disabled(roomName.isEmpty)
             }
         }
     }
@@ -44,6 +45,6 @@ struct CreateRoommateGroup: View {
 
 struct CreateRoommateGroup_Previews: PreviewProvider {
     static var previews: some View {
-        CreateRoommateGroup()
+        CreateRoommateGroup(roomName: .constant("cheesey group name"), isNavigating: .constant(false))
     }
 }
