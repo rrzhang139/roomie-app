@@ -25,7 +25,13 @@ router.get("/roommates/:roommate_group_id", auth, async (req, res) => {
   try {
     const user_id = req.user.id;
     const { roommate_group_id } = req.params;
-    const roommateGroup = await RoommateGroup.findById(roommate_group_id).populate("roommates");
+    let roommateGroup = await RoommateGroup.findById(roommate_group_id)
+      .populate("roommates")
+      .exec();
+
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
     res.status(200).json(roommateGroup.roommates);
   } catch (error) {
     console.error(error);
@@ -48,7 +54,8 @@ router.get("/", auth, async (req, res, next) => {
       .populate("roommates")
       .populate("grocery_items")
       .populate("shared_resources")
-      .populate("bills");
+      .populate("bills")
+      .populate("tasks");
 
     res.status(200).json(roommateGroups);
   } catch (error) {
@@ -76,7 +83,7 @@ router.post("/", auth, async (req, res) => {
       roommates.push(user._id);
     }
 
-    const roommateGroup = new RoommateGroup({ name, owner_id: user_id, roommates, tasks: [], bills: [], grocery_items: [] });
+    const roommateGroup = new RoommateGroup({ name, owner_id: user_id, roommates, tasks: [], bills: [], grocery_items: [], shared_resource: [] });
     await roommateGroup.save();
     const id = roommateGroup._id;
 
@@ -118,6 +125,10 @@ router.post("/add-roommate/:roommate_group_id", auth, async (req, res) => {
       return res.status(403).json({ message: "Only the owner of the roommate group can add users" });
     }
 
+    if (roommateGroup.roommates.includes(userToAdd._id)) {
+      return res.status(403).json({ message: "User already added" });
+    }
+
     // Add the user to the roommate group and save
     roommateGroup.roommates.push(userToAdd._id);
     await roommateGroup.save();
@@ -134,9 +145,9 @@ router.post("/add-roommate/:roommate_group_id", auth, async (req, res) => {
 // AUTH HERE
 router.put("/:roommate_group_id", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { roommate_group_id } = req.params;
     const { name, roommates, tasks, bills, grocery_items } = req.body;
-    const task = await RoommateGroup.findByIdAndUpdate(id, { name, roommates, tasks, bills, grocery_items }, { new: true });
+    const task = await RoommateGroup.findByIdAndUpdate(roommate_group_id, { name, roommates, tasks, bills, grocery_items }, { new: true });
 
     if (!task) {
       return res.status(404).json({ message: "Task not found" });
@@ -151,11 +162,11 @@ router.put("/:roommate_group_id", async (req, res) => {
 
 // DELETE /roommate-groups/:id: Remove a roommate group by ID
 // AUTH HERE
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:roommate_group_id", auth, async (req, res) => {
   try {
     const user_id = req.user.id;
-    const { id } = req.params;
-    const roommateGroup = await RoommateGroup.findById(id);
+    const { roommate_group_id } = req.params;
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
 
     if (!roommateGroup) {
       return res.status(404).json({ message: "Roommate group not found" });
@@ -167,15 +178,15 @@ router.delete("/:id", auth, async (req, res) => {
 
     for (const roommateId of roommateGroup.roommates) {
       const user = await User.findById(roommateId);
-      const updatedRoommateGroups = user.roommate_group_ids.filter(roommateGroupId => !roommateGroupId.equals(id));
+      const updatedRoommateGroups = user.roommate_group_ids.filter(roommateGroupId => !roommateGroupId.equals(roommate_group_id));
       await User.findByIdAndUpdate(roommateId, { roommate_group_ids: updatedRoommateGroups });
     }
 
-    await Bill.deleteMany({ roommate_group_id: id });
-    await GroceryItem.deleteMany({ roommate_group_id: id });
-    await SharedResource.deleteMany({ roommate_group_id: id });
+    await Bill.deleteMany({ roommate_group_id });
+    await GroceryItem.deleteMany({ roommate_group_id });
+    await SharedResource.deleteMany({ roommate_group_id });
 
-    await RoommateGroup.findByIdAndDelete(id);
+    await RoommateGroup.findByIdAndDelete(roommate_group_id);
     res.status(200).json({ message: "Roommate group successfully deleted" });
   } catch (error) {
     console.error(error);

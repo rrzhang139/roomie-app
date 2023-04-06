@@ -6,7 +6,8 @@ const RoommateGroupSchema = new mongoose.Schema({
   roommates: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Task" }],
   bills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bill" }],
-  grocery_items: [{ type: mongoose.Schema.Types.ObjectId, ref: "GroceryItem" }]
+  grocery_items: [{ type: mongoose.Schema.Types.ObjectId, ref: "GroceryItem" }],
+  shared_resource: [{ type: mongoose.Schema.Types.ObjectId, ref: "SharedResource" }]
 });
 
 module.exports = mongoose.model("RoommateGroup", RoommateGroupSchema);

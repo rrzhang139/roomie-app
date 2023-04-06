@@ -4,6 +4,7 @@ const GroceryItem = require("../model/GroceryItem");
 const RoommateGroup = require("../model/RoommateGroup");
 const User = require("../model/User");
 const { CustomError } = require("../util/errors");
+const auth = require("../middleware/auth");
 
 // GET /grocery-list/group/:id: Get all grocery items for a specific roommate group
 router.get("/group/:id", async (req, res, next) => {

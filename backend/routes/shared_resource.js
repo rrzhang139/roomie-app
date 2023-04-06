@@ -3,6 +3,7 @@ const router = express.Router();
 const SharedResource = require("../model/SharedResource");
 const RoommateGroup = require("../model/RoommateGroup");
 const User = require("../model/User");
+const auth = require("../middleware/auth");
 
 // GET /shared-resources/group/:id: Get all shared resources for a specific roommate group
 router.get("/group/:id", async (req, res, next) => {
@@ -34,11 +35,50 @@ router.get("/user/:id", async (req, res, next) => {
 });
 
 // POST /shared-resources: Add a new shared resource
-router.post("/", async (req, res, next) => {
+router.post("/", auth, async (req, res, next) => {
   try {
-    const newResource = new SharedResource(req.body);
+    const user_id = req.user.id;
+    const { roommate_group_id, name, owner_id } = req.body;
+
+    // Find the roommate group and ensure the requesting user is a part of the group
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
+    if (!group.roommates.includes(user_id)) {
+      return res.status(403).json({ message: "You do not have permission to add this resource" });
+    }
+
+    const newResource = new SharedResource({ roommate_group_id, name, owner_id, resource_duration: 0, status: "available" });
     await newResource.save();
     res.status(201).json(newResource);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// PUT /shared-resources/:id: Occupy shared resource by ID
+router.put("/occupy/:id", auth, async (req, res, next) => {
+  try {
+    const user_id = req.user.id;
+    const { id } = req.params;
+    const { resource_duration } = req.body;
+
+    const group = await RoommateGroup.findOne({ shared_resources: { $in: [id] } });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found" });
+    }
+
+    if (!group.roommates.includes(user_id)) {
+      return res.status(403).json({ message: "You do not have permission to occupy this resource" });
+    }
+
+    const updatedResource = await SharedResource.findByIdAndUpdate(id, { resource_duration, status: "in-use" }, { new: true });
+    if (!updatedResource) {
+      throw new CustomError(404, "Shared resource not found");
+    }
+    res.status(200).json(updatedResource);
   } catch (error) {
     next(error);
   }

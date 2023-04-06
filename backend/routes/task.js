@@ -54,6 +54,12 @@ router.post("/", auth, async (req, res) => {
     const user_id = req.user.id;
     const { name, description, due_date, status, roommate_group_id } = req.body;
     const due_date_object = new Date(due_date);
+    // Find the roommate group
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
+
     const task = new Task({ user_id, name, description, due_date_object, status, roommate_group_id });
 
     // TODO: INSERT GOOGLE CAL API
@@ -67,11 +73,17 @@ router.post("/", auth, async (req, res) => {
 
 // PUT /tasks/:id: Update a task by ID
 // NEED AUTH
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const user_id = req.user.id;
     const { name, description, due_date, status, roommate_group_id } = req.body;
+
+    // Find the roommate group
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
     const task = await Task.findByIdAndUpdate(id, { user_id, name, description, due_date, status, roommate_group_id }, { new: true });
 
     if (!task) {

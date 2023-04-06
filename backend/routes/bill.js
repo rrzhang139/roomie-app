@@ -4,6 +4,7 @@ const Bill = require("../model/Bill");
 const User = require("../model/User");
 const RoommateGroup = require("../model/RoommateGroup");
 const { CustomError } = require("../util/errors");
+const auth = require("../middleware/auth");
 
 // GET /bills/user/:userId: Get all bills for a specific user
 router.get("/user/:userId", async (req, res, next) => {
