@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B41CDCC329DD6FFC001C7282 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC229DD6FFC001C7282 /* User.swift */; };
+		B41CDCC529DD713A001C7282 /* RoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC429DD713A001C7282 /* RoommateGroup.swift */; };
+		B41CDCC729DD725D001C7282 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC629DD725D001C7282 /* Bill.swift */; };
+		B41CDCC929DD7392001C7282 /* GroupTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCC829DD7392001C7282 /* GroupTask.swift */; };
+		B41CDCCB29DD741D001C7282 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41CDCCA29DD741D001C7282 /* GroceryItem.swift */; };
+		B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D02B29D8E605006BEB1C /* RoommateApp.swift */; };
+		B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D02D29D8E605006BEB1C /* ContentView.swift */; };
+		B436D03029D8E607006BEB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B436D02F29D8E607006BEB1C /* Assets.xcassets */; };
+		B436D03329D8E607006BEB1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B436D03229D8E607006BEB1C /* Preview Assets.xcassets */; };
+		B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */; };
+		B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04029DA1B92006BEB1C /* RoommateAPI.swift */; };
+		B436D04429DA2491006BEB1C /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436D04329DA2491006BEB1C /* UserToken.swift */; };
+		B464ACE529DCD3F400F2D428 /* LoginSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */; };
+		B464ACE729DCD41200F2D428 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE629DCD41200F2D428 /* SignUp.swift */; };
+		B464ACE929DCD45E00F2D428 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464ACE829DCD45E00F2D428 /* Login.swift */; };
+		B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */; };
+		B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */; };
+		B47F185F29DA91AA0028C7E6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F185E29DA91AA0028C7E6 /* MainView.swift */; };
+		B4E6C1D729DEBF64002F0A89 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */; };
+		B4E6C1D929DEBF9E002F0A89 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1D829DEBF9E002F0A89 /* Home.swift */; };
+		B4E6C1DB29DEBFD4002F0A89 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */; };
+		B4E6C1DD29DEBFE7002F0A89 /* Bills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */; };
+		B4E6C1DF29DEBFFE002F0A89 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B41CDCC229DD6FFC001C7282 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B41CDCC429DD713A001C7282 /* RoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateGroup.swift; sourceTree = "<group>"; };
+		B41CDCC629DD725D001C7282 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		B41CDCC829DD7392001C7282 /* GroupTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTask.swift; sourceTree = "<group>"; };
+		B41CDCCA29DD741D001C7282 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		B436D02829D8E605006BEB1C /* Roommate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roommate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B436D02B29D8E605006BEB1C /* RoommateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateApp.swift; sourceTree = "<group>"; };
+		B436D02D29D8E605006BEB1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B436D02F29D8E607006BEB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B436D03229D8E607006BEB1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserLanding.swift; sourceTree = "<group>"; };
+		B436D04029DA1B92006BEB1C /* RoommateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateAPI.swift; sourceTree = "<group>"; };
+		B436D04329DA2491006BEB1C /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUp.swift; sourceTree = "<group>"; };
+		B464ACE629DCD41200F2D428 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		B464ACE829DCD45E00F2D428 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoommateGroup.swift; sourceTree = "<group>"; };
+		B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroup.swift; sourceTree = "<group>"; };
+		B47F185E29DA91AA0028C7E6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
+		B4E6C1D829DEBF9E002F0A89 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bills.swift; sourceTree = "<group>"; };
+		B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B436D02529D8E605006BEB1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B41CDCCC29DD75F3001C7282 /* LoginSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B464ACE429DCD3F400F2D428 /* LoginSignUp.swift */,
+				B464ACE629DCD41200F2D428 /* SignUp.swift */,
+				B464ACE829DCD45E00F2D428 /* Login.swift */,
+			);
+			path = LoginSignUp;
+			sourceTree = "<group>";
+		};
+		B436D01F29D8E604006BEB1C = {
+			isa = PBXGroup;
+			children = (
+				B436D02A29D8E605006BEB1C /* Roommate App */,
+				B436D02929D8E605006BEB1C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B436D02929D8E605006BEB1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B436D02829D8E605006BEB1C /* Roommate App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B436D02A29D8E605006BEB1C /* Roommate App */ = {
+			isa = PBXGroup;
+			children = (
+				B436D04229DA2483006BEB1C /* Models */,
+				B436D03929D8E6EC006BEB1C /* Views */,
+				B436D02B29D8E605006BEB1C /* RoommateApp.swift */,
+				B436D02D29D8E605006BEB1C /* ContentView.swift */,
+				B436D02F29D8E607006BEB1C /* Assets.xcassets */,
+				B436D03129D8E607006BEB1C /* Preview Content */,
+				B436D04029DA1B92006BEB1C /* RoommateAPI.swift */,
+			);
+			path = "Roommate App";
+			sourceTree = "<group>";
+		};
+		B436D03129D8E607006BEB1C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B436D03229D8E607006BEB1C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B436D03929D8E6EC006BEB1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4E6C1D529DEBEE0002F0A89 /* Tabs */,
+				B41CDCCC29DD75F3001C7282 /* LoginSignUp */,
+				B436D03E29D8FBBF006BEB1C /* NewUserLanding.swift */,
+				B47F185C29DA8F7E0028C7E6 /* JoinGroup.swift */,
+				B47F185A29DA8DDE0028C7E6 /* CreateRoommateGroup.swift */,
+				B47F185E29DA91AA0028C7E6 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B436D04229DA2483006BEB1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B436D04329DA2491006BEB1C /* UserToken.swift */,
+				B41CDCC229DD6FFC001C7282 /* User.swift */,
+				B41CDCC429DD713A001C7282 /* RoommateGroup.swift */,
+				B41CDCCA29DD741D001C7282 /* GroceryItem.swift */,
+				B41CDCC829DD7392001C7282 /* GroupTask.swift */,
+				B41CDCC629DD725D001C7282 /* Bill.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4E6C1D529DEBEE0002F0A89 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				B4E6C1D629DEBF64002F0A89 /* GroceryList.swift */,
+				B4E6C1D829DEBF9E002F0A89 /* Home.swift */,
+				B4E6C1DA29DEBFD4002F0A89 /* Tasks.swift */,
+				B4E6C1DC29DEBFE7002F0A89 /* Bills.swift */,
+				B4E6C1DE29DEBFFE002F0A89 /* Schedule.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B436D02729D8E605006BEB1C /* Roommate App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B436D03629D8E607006BEB1C /* Build configuration list for PBXNativeTarget "Roommate App" */;
+			buildPhases = (
+				B436D02429D8E605006BEB1C /* Sources */,
+				B436D02529D8E605006BEB1C /* Frameworks */,
+				B436D02629D8E605006BEB1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Roommate App";
+			productName = "Roommate App";
+			productReference = B436D02829D8E605006BEB1C /* Roommate App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B436D02029D8E604006BEB1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					B436D02729D8E605006BEB1C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = B436D02329D8E604006BEB1C /* Build configuration list for PBXProject "Roommate App" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B436D01F29D8E604006BEB1C;
+			productRefGroup = B436D02929D8E605006BEB1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B436D02729D8E605006BEB1C /* Roommate App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B436D02629D8E605006BEB1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B436D03329D8E607006BEB1C /* Preview Assets.xcassets in Resources */,
+				B436D03029D8E607006BEB1C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B436D02429D8E605006BEB1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47F185F29DA91AA0028C7E6 /* MainView.swift in Sources */,
+				B47F185B29DA8DDE0028C7E6 /* CreateRoommateGroup.swift in Sources */,
+				B464ACE529DCD3F400F2D428 /* LoginSignUp.swift in Sources */,
+				B41CDCC529DD713A001C7282 /* RoommateGroup.swift in Sources */,
+				B4E6C1D929DEBF9E002F0A89 /* Home.swift in Sources */,
+				B41CDCC729DD725D001C7282 /* Bill.swift in Sources */,
+				B41CDCC929DD7392001C7282 /* GroupTask.swift in Sources */,
+				B4E6C1DB29DEBFD4002F0A89 /* Tasks.swift in Sources */,
+				B41CDCCB29DD741D001C7282 /* GroceryItem.swift in Sources */,
+				B464ACE929DCD45E00F2D428 /* Login.swift in Sources */,
+				B4E6C1D729DEBF64002F0A89 /* GroceryList.swift in Sources */,
+				B464ACE729DCD41200F2D428 /* SignUp.swift in Sources */,
+				B4E6C1DF29DEBFFE002F0A89 /* Schedule.swift in Sources */,
+				B436D02E29D8E605006BEB1C /* ContentView.swift in Sources */,
+				B436D03F29D8FBBF006BEB1C /* NewUserLanding.swift in Sources */,
+				B436D02C29D8E605006BEB1C /* RoommateApp.swift in Sources */,
+				B41CDCC329DD6FFC001C7282 /* User.swift in Sources */,
+				B4E6C1DD29DEBFE7002F0A89 /* Bills.swift in Sources */,
+				B436D04429DA2491006BEB1C /* UserToken.swift in Sources */,
+				B436D04129DA1B92006BEB1C /* RoommateAPI.swift in Sources */,
+				B47F185D29DA8F7E0028C7E6 /* JoinGroup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B436D03429D8E607006BEB1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B436D03529D8E607006BEB1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B436D03729D8E607006BEB1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Roommate App/Preview Content\"";
+				DEVELOPMENT_TEAM = JSF53DFS29;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.logannormanss.Roommate-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B436D03829D8E607006BEB1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Roommate App/Preview Content\"";
+				DEVELOPMENT_TEAM = JSF53DFS29;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.logannormanss.Roommate-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B436D02329D8E604006BEB1C /* Build configuration list for PBXProject "Roommate App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B436D03429D8E607006BEB1C /* Debug */,
+				B436D03529D8E607006BEB1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B436D03629D8E607006BEB1C /* Build configuration list for PBXNativeTarget "Roommate App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B436D03729D8E607006BEB1C /* Debug */,
+				B436D03829D8E607006BEB1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B436D02029D8E604006BEB1C /* Project object */;
+}
