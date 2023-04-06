@@ -171,7 +171,7 @@ router.post(
 );
 
 /**
- * @method - POST
+ * @method - GET
  * @description - Get LoggedIn User
  * @param - /auth/me
  */

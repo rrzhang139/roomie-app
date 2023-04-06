@@ -7,7 +7,7 @@ const { CustomError } = require("../util/errors");
 const auth = require("../middleware/auth");
 
 // GET /grocery-list/group/:id: Get all grocery items for a specific roommate group
-router.get("/group/:id", async (req, res, next) => {
+router.get("/group/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
     const group = await RoommateGroup.findById(id).populate("grocery_items");
@@ -20,15 +20,15 @@ router.get("/group/:id", async (req, res, next) => {
   }
 });
 
-// GET /grocery-list/user/:id: Get all grocery items for a specific user
-router.get("/user/:id", async (req, res, next) => {
+// GET /grocery-list/user: Get all grocery items for a specific user
+router.get("/user", auth, async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const user = await User.findById(id);
+    const user_id = req.user.id;
+    const user = await User.findById(user_id);
     if (!user) {
       throw new CustomError(404, "User not found");
     }
-    const items = await GroceryItem.find({ added_by: id });
+    const items = await GroceryItem.find({ added_by: user_id });
     res.status(200).json(items);
   } catch (error) {
     next(error);
@@ -36,8 +36,17 @@ router.get("/user/:id", async (req, res, next) => {
 });
 
 // POST /grocery-list: Add a new grocery item
-router.post("/", async (req, res, next) => {
+router.post("/", auth, async (req, res, next) => {
   try {
+
+    // Find the roommate group and ensure the requesting user is a part of the group
+    const roommateGroup = await RoommateGroup.findById(roommate_group_id);
+    if (!roommateGroup) {
+      return res.status(404).json({ message: "Roommate group not found" });
+    }
+    if (!group.roommates.includes(user_id)) {
+      return res.status(403).json({ message: "You do not have permission to add this resource" });
+    }
     const newItem = new GroceryItem(req.body);
     await newItem.save();
     res.status(201).json(newItem);
