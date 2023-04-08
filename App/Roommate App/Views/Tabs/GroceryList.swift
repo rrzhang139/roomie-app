@@ -15,49 +15,47 @@ struct GroceryList: View {
     ]
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack {
             Text("Grocery List")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.bottom, 8)
+                .font(.system(size: 36, weight: .semibold))
             
-            List {
-                ForEach(groceryItems) { item in
-                    GroceryItemRow(item: item)
-                        .listRowInsets(EdgeInsets())
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .listStyle(.plain)
-            .background(Color.white)
-            .cornerRadius(16)
-            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.addItem()
-                }) {
-                    HStack {
-                        Image(systemName: "plus")
-                            .font(.headline)
-                        Text("Add Item")
-                            .font(.headline)
+            ZStack(alignment: .bottom) {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(groceryItems) { item in
+                            CardView {
+                                GroceryItemRow(item: item)
+                            }
+                        }
                     }
-                    .foregroundColor(.white)
-                    .padding(.vertical, 12)
-                    .padding(.horizontal, 24)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                    .padding(.horizontal, 16)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button(action: addItem) {
+                        Image(systemName: "plus")
+                            .frame(width: 50, height: 40)
+                            .font(.system(size: 25))
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 16)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        EmptyView()
+                    }
+                }
             }
-            .padding(.vertical, 16)
         }
-        .padding(.horizontal, 16)
     }
-
+    
     func addItem() {
         
     }
@@ -67,11 +65,35 @@ struct GroceryList: View {
     }
 }
 
+struct CardView<Content: View>: View {
+    let content: () -> Content
+    var body: some View {
+        VStack {
+            content()
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+}
+
 struct GroceryItemRow: View {
     let item: GroceryItem
+    @State var completed = false
     
     var body: some View {
         HStack {
+            Button(action: { completed.toggle() }) {
+                Image(systemName: completed ? "checkmark.square.fill" : "square")
+                    .foregroundColor(.blue)
+            }
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.name)
                     .font(.headline)
@@ -84,31 +106,12 @@ struct GroceryItemRow: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
-            .padding(.horizontal)
             
             Spacer()
-            
-            VStack(alignment: .center) {
-                if item.status == .Complete {
-                    Circle()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                        .overlay(
-                            Image(systemName: "circle")
-                                .foregroundColor(.white)
-                        )
-                } else {
-                    Image(systemName: "circle")
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                }
-                
-                Text(formatDate(item.due_date))
-                    .font(.subheadline)
-            }
-            .padding(.horizontal)
         }
-        .padding(.vertical, 8)
+        .padding()
+        .background(completed ? Color.gray.opacity(0.3) : Color.white)
+        .cornerRadius(10)
     }
     
     func formatDate(_ date: Date) -> String {
@@ -122,6 +125,8 @@ struct GroceryItemRow: View {
 
 struct GroceryList_Previews: PreviewProvider {
     static var previews: some View {
-        GroceryList()
+        NavigationView {
+            GroceryList()
+        }
     }
 }
